@@ -87,6 +87,55 @@
 
         @yield('content')
     </main>
+    <footer class="bg-blue-950 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Column 1 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-yellow-400">Rainwater Convention 2025</h3>
+                    <p class="text-blue-200 text-sm">
+                        International Conference on Rainwater Harvesting,<br>
+                        Sustainable Water Management & Climate Resilience
+                    </p>
+                </div>
+
+                <!-- Column 2 -->
+                <div>
+                    <h4 class="font-semibold mb-3">Quick Links</h4>
+                    <ul class="space-y-2 text-blue-200 text-sm">
+                        <li><a href="{{ route('home') }}" class="hover:text-yellow-400 transition">Home</a></li>
+                        <li><a href="{{ route('faqs') }}" class="hover:text-yellow-400 transition">FAQs</a></li>
+                        <li><a href="{{ route('register') }}" class="hover:text-yellow-400 transition">Register</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 3 -->
+                <div>
+                    <h4 class="font-semibold mb-3">Event Details</h4>
+                    <p class="text-blue-200 text-sm">
+                        📅 15–17 December 2025<br>
+                        📍 KICC, Nairobi, Kenya<br>
+                        ⏰ 9:00 AM – 5:00 PM EAT
+                    </p>
+                </div>
+
+                <!-- Column 4 -->
+                <div>
+                    <h4 class="font-semibold mb-3">Contact</h4>
+                    <p class="text-blue-200 text-sm">
+                        ✉️ info@rainwaterconvention.org<br>
+                        ☎️ +254 700 123 456<br>
+                        <span class="block mt-3 text-xs">© 2025 Rainwater Convention. All rights reserved.</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="border-t border-blue-800 mt-8 pt-6 text-center text-blue-300 text-sm">
+                Developed with ❤️ for sustainable water future
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
