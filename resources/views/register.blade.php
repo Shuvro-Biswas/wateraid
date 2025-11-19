@@ -287,7 +287,7 @@
             </div>
 
             <!-- Registration Form -->
-            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-10">
+            <div class="bg-white rounded-2xl shadow-xl p-8 md:p-7">
                 <form action="{{ route('register') }}" method="POST" class="space-y-8">
                     @csrf
 
@@ -322,7 +322,7 @@
                             <div class="form-group">
                                 <label class="form-label">Phone Number</label>
                                 <input type="tel" name="phone" value="{{ old('phone') }}" class="form-input"
-                                    placeholder="+1 (555) 000-0000">
+                                    placeholder="+880170010-0000">
                             </div>
 
                             <!-- Organization -->
