@@ -47,7 +47,7 @@
 
 <body class="bg-gray-100 font-sans">
 
-    <nav class="bg-blue-800 text-white p-4 shadow-lg">
+    {{-- <nav class="bg-blue-800 text-white p-4 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">Rainwater Convention 2025</h1>
             <div class="flex items-center space-x-6">
@@ -60,7 +60,7 @@
                     @endif
                     <span class="font-medium">Hello, {{ auth()->user()->name }}</span>
                     <a href="{{ route('register') }}" class="hover:underline">My Profile</a>
-                    <form method="POST" action="{{ route('logout') }}" class="inline">
+                    <form method="POST" action="{{ route('logout') }}" class="inline-flex">
                         @csrf
                         <button type="submit" class="hover:underline">Logout</button>
                     </form>
@@ -68,6 +68,40 @@
                     <a href="{{ route('login') }}" class="hover:underline">Login</a>
                     <a href="{{ route('register') }}"
                         class="bg-white text-blue-800 px-5 py-2 rounded font-bold hover:bg-gray-200">Register</a>
+                @endauth
+            </div>
+        </div>
+    </nav> --}}
+
+    <nav class="bg-blue-800 text-white p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Rainwater Convention 2025</h1>
+            <div class="flex items-center space-x-6">
+                <a href="{{ route('home') }}" class="hover:underline">Home</a>
+                <a href="{{ route('faqs') }}" class="hover:underline">FAQs</a>
+
+                @auth
+                    @if (auth()->user()->isAdmin())
+                        <a href="{{ route('admin') }}"
+                            class="bg-yellow-500 px-4 py-2 rounded font-bold hover:bg-yellow-400 transition-colors">
+                            Admin Portal
+                        </a>
+                    @endif
+                    <span class="font-medium">Hello, {{ auth()->user()->name }}</span>
+                    <a href="{{ route('register') }}" class="hover:underline">My Profile</a>
+                    <form method="POST" action="{{ route('logout') }}" class="m-0 inline">
+                        @csrf
+                        <button type="submit"
+                            class="hover:underline bg-transparent border-none text-white cursor-pointer p-0">
+                            Logout
+                        </button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}" class="hover:underline">Login</a>
+                    <a href="{{ route('register') }}"
+                        class="bg-white text-blue-800 px-5 py-2 rounded font-bold hover:bg-gray-200 transition-colors">
+                        Register
+                    </a>
                 @endauth
             </div>
         </div>
@@ -132,7 +166,7 @@
             </div>
 
             <div class="border-t border-blue-800 mt-8 pt-6 text-center text-blue-300 text-sm">
-                Developed with ❤️ for sustainable water future
+                Developed By Shuvro Biswas for sustainable water future
             </div>
         </div>
     </footer>
