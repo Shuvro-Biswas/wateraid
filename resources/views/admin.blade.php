@@ -1,55 +1,3 @@
-{{-- @extends('layouts.app')
-
-@section('title', ' - Admin Portal')
-
-@section('content')
-    <div class="bg-white rounded-lg shadow-lg p-8">
-        <h2 class="text-3xl font-bold mb-6 text-blue-800">Admin Portal – Registered Participants</h2>
-
-        @if ($participants->count() == 0)
-            <p class="text-gray-600">No participants registered yet.</p>
-        @else
-            <div class="overflow-x-auto">
-                <table class="min-w-full border">
-                    <thead class="bg-gray-200">
-                        <tr>
-                            <th class="px-4 py-2 text-left">Name</th>
-                            <th class="px-4 py-2 text-left">Email</th>
-                            <th class="px-4 py-2 text-left">Organization</th>
-                            <th class="px-4 py-2 text-left">Phone</th>
-                            <th class="px-4 py-2 text-left">Registered At</th>
-                            <th class="px-4 py-2 text-left">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($participants as $p)
-                            <tr class="border-t">
-                                <td class="px-4 py-3">{{ $p->name }}</td>
-                                <td class="px-4 py-3">{{ $p->email }}</td>
-                                <td class="px-4 py-3">{{ $p->organization ?: '-' }}</td>
-                                <td class="px-4 py-3">{{ $p->phone ?: '-' }}</td>
-                                <td class="px-4 py-3">{{ $p->created_at->format('d M Y H:i') }}</td>
-                                <td class="px-4 py-3">
-                                    <form action="{{ route('admin.destroy', $p) }}" method="POST" class="inline">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button onclick="return confirm('Delete this participant?')"
-                                            class="text-red-600 hover:underline text-sm">Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="mt-6">
-                {{ $participants->links() }}
-            </div>
-        @endif
-    </div>
-@endsection --}}
-
 @extends('layouts.app')
 
 @section('title', ' - Admin Portal')
@@ -62,18 +10,6 @@
                 <h1 class="text-3xl font-bold text-gray-900">Admin Portal</h1>
                 <p class="text-gray-600 mt-2">Manage registered participants</p>
             </div>
-
-            <!-- Success Message -->
-            @if (session('success'))
-                <div class="mb-6 bg-green-50 border border-green-200 rounded-lg p-4 flex items-center">
-                    <svg class="w-5 h-5 text-green-500 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd"
-                            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <span class="text-green-800">{{ session('success') }}</span>
-                </div>
-            @endif
 
             <!-- Stats Cards -->
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
@@ -327,11 +263,11 @@
             </div>
             
             ${participant.notes ? `
-                <div class="border-t pt-3">
-                    <div class="text-gray-600 text-sm mb-1">Additional Notes:</div>
-                    <div class="text-sm bg-gray-50 p-3 rounded whitespace-pre-wrap">${participant.notes}</div>
-                </div>
-                ` : ''}
+                        <div class="border-t pt-3">
+                            <div class="text-gray-600 text-sm mb-1">Additional Notes:</div>
+                            <div class="text-sm bg-gray-50 p-3 rounded whitespace-pre-wrap">${participant.notes}</div>
+                        </div>
+                        ` : ''}
         </div>
     `;
 

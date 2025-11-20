@@ -5,12 +5,6 @@
     <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8">
         <h2 class="text-3xl font-bold text-blue-800 mb-8 text-center">My Profile</h2>
 
-        {{-- @if (session('success'))
-            <div class="bg-green-100 border border-green-400 text-green-700 px-6 py-3 rounded mb-6">
-                {{ session('success') }}
-            </div>
-        @endif --}}
-
         <div class="grid md:grid-cols-2 gap-8">
             <!-- Profile Info -->
             <div class="bg-gray-50 p-6 rounded-lg">
