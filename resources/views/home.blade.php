@@ -315,7 +315,7 @@
 
     /* Buttons */
     .btn {
-        /* display: inline-flex; */
+        display: inline-flex;
         align-items: center;
         justify-content: center;
         padding: 1rem 2rem;

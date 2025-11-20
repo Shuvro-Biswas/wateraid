@@ -75,28 +75,84 @@
 
     <nav class="bg-blue-800 text-white p-4 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
+            <!-- Logo/Brand -->
             <h1 class="text-2xl font-bold">Rainwater Convention 2025</h1>
+
+            <!-- Navigation Links -->
             <div class="flex items-center space-x-6">
                 <a href="{{ route('home') }}" class="hover:underline">Home</a>
                 <a href="{{ route('faqs') }}" class="hover:underline">FAQs</a>
 
                 @auth
-                    @if (auth()->user()->isAdmin())
-                        <a href="{{ route('admin') }}"
-                            class="bg-yellow-500 px-4 py-2 rounded font-bold hover:bg-yellow-400 transition-colors">
-                            Admin Portal
-                        </a>
-                    @endif
-                    <span class="font-medium">Hello, {{ auth()->user()->name }}</span>
-                    <a href="{{ route('register') }}" class="hover:underline">My Profile</a>
-                    <form method="POST" action="{{ route('logout') }}" class="m-0 inline">
-                        @csrf
-                        <button type="submit"
-                            class="hover:underline bg-transparent border-none text-white cursor-pointer p-0">
-                            Logout
+                    <!-- User Dropdown -->
+                    <div class="relative group">
+                        <button
+                            class="flex items-center space-x-2 hover:bg-blue-700 px-3 py-2 rounded-lg transition-colors">
+                            <div
+                                class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                                {{ substr(auth()->user()->name, 0, 1) }}
+                            </div>
+                            <span class="font-medium">{{ auth()->user()->name }}</span>
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none"
+                                stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
                         </button>
-                    </form>
+
+                        <!-- Dropdown Menu -->
+                        <div
+                            class="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-xl py-2 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                            <!-- User Info -->
+                            <div class="px-4 py-3 border-b border-gray-100">
+                                <p class="text-sm font-semibold text-gray-900">{{ auth()->user()->name }}</p>
+                                <p class="text-sm text-gray-600 truncate">{{ auth()->user()->email }}</p>
+                                <p class="text-xs text-blue-600 font-medium mt-1">
+                                    {{ auth()->user()->isAdmin() ? 'Admin' : 'User' }}</p>
+                            </div>
+
+                            <!-- Admin Portal -->
+                            @if (auth()->user()->isAdmin())
+                                <a href="{{ route('admin') }}"
+                                    class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                                    <svg class="w-4 h-4 mr-3 text-yellow-500" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                    Admin Portal
+                                </a>
+                            @endif
+
+                            <!-- Profile -->
+                            <a href="{{ route('register') }}"
+                                class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                                <svg class="w-4 h-4 mr-3 text-gray-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                                View Profile
+                            </a>
+
+                            <!-- Logout -->
+                            <form method="POST" action="{{ route('logout') }}" class="border-t border-gray-100">
+                                @csrf
+                                <button type="submit"
+                                    class="flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+                                    <svg class="w-4 h-4 mr-3 text-gray-600" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                    </svg>
+                                    Logout
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 @else
+                    <!-- Guest Links -->
                     <a href="{{ route('login') }}" class="hover:underline">Login</a>
                     <a href="{{ route('register') }}"
                         class="bg-white text-blue-800 px-5 py-2 rounded font-bold hover:bg-gray-200 transition-colors">
