@@ -266,8 +266,11 @@
 <style>
     /* ===== HERO VISUAL STYLES ===== */
     .hero-visual {
-        display: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         position: relative;
+        margin-top: 2rem;
     }
 
     .water-mission-card {
@@ -279,6 +282,7 @@
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         border: 1px solid rgba(255, 255, 255, 0.2);
         max-width: 400px;
+        width: 100%;
         margin: 0 auto;
     }
 
@@ -366,6 +370,8 @@
         cursor: pointer;
         transition: all 0.3s ease;
         text-align: center;
+        text-decoration: none;
+        display: inline-block;
     }
 
     .mission-btn.primary {
@@ -376,6 +382,7 @@
     .mission-btn.primary:hover {
         background: #3b82f6;
         transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
     }
 
     .mission-btn.secondary {
@@ -387,14 +394,19 @@
     .mission-btn.secondary:hover {
         background: #2563eb;
         color: #ffffff;
+        transform: translateY(-1px);
     }
 
     /* ===== RESPONSIVE DESIGN ===== */
     @media (min-width: 768px) {
         .hero-visual {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-top: 0;
+            justify-content: flex-end;
+        }
+
+        .water-mission-card {
+            margin: 0;
+            padding: 2.5rem;
         }
 
         .mission-actions {
@@ -425,6 +437,14 @@
 
         .mission-actions {
             flex-direction: column;
+        }
+
+        .mission-title {
+            font-size: 1.25rem;
+        }
+
+        .mission-statement {
+            font-size: 0.9rem;
         }
     }
 </style>
@@ -542,11 +562,6 @@
         display: flex;
         gap: 1rem;
         flex-wrap: wrap;
-    }
-
-    .hero-visual {
-        display: none;
-        position: relative;
     }
 
     .visual-element {
