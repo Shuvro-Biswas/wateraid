@@ -9,6 +9,28 @@
 </head>
 
 <body class="bg-gray-100 font-sans min-h-screen flex flex-col">
+    <!-- Floating Toast Notifications -->
+    <div id="toast-container" class="fixed top-20 right-4 z-50 space-y-3 pointer-events-none">
+        @if (session('success'))
+            <div
+                class="toast pointer-events-auto bg-green-600 text-white px-6 py-4 rounded-lg shadow-2xl flex items-center space-x-3 transform translate-x-full opacity-0 transition-all duration-500">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span class="font-medium">{{ session('success') }}</span>
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div
+                class="toast pointer-events-auto bg-red-600 text-white px-6 py-4 rounded-lg shadow-2xl flex items-center space-x-3 transform translate-x-full opacity-0 transition-all duration-500">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+                <span class="font-medium">{{ session('error') }}</span>
+            </div>
+        @endif
+    </div>
 
     <!-- Navigation-->
     <nav class="bg-blue-800 text-white p-4 shadow-lg">
@@ -93,29 +115,6 @@
         </div>
     </nav>
 
-    <!-- Floating Toast Notifications -->
-    <div id="toast-container" class="fixed top-20 right-4 z-50 space-y-3">
-        @if (session('success'))
-            <div
-                class="toast bg-green-600 text-white px-6 py-4 rounded-lg shadow-2xl flex items-center space-x-3 transform translate-x-full opacity-0 transition-all duration-500">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span class="font-medium">{{ session('success') }}</span>
-            </div>
-        @endif
-
-        @if (session('error'))
-            <div
-                class="toast bg-red-600 text-white px-6 py-4 rounded-lg shadow-2xl flex items-center space-x-3 transform translate-x-full opacity-0 transition-all duration-500">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-                <span class="font-medium">{{ session('error') }}</span>
-            </div>
-        @endif
-    </div>
-
     <!-- Main Content -->
     <main class="flex-1 container mx-auto px-4 py-8">
         @yield('content')
@@ -166,25 +165,32 @@
 
     <!-- Auto Hide Toast After 3 Seconds -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        (function() {
             const toasts = document.querySelectorAll('.toast');
 
-            toasts.forEach(toast => {
-                // Slide In
-                setTimeout(() => {
-                    toast.classList.remove('translate-x-full', 'opacity-0');
-                    toast.classList.add('translate-x-0', 'opacity-100');
-                }, 100);
+            if (toasts.length === 0) return;
 
-                // Slide Out after 3 seconds
+            toasts.forEach((toast, index) => {
+
+                void toast.offsetWidth;
+                toast.classList.remove('translate-x-full', 'opacity-0');
+                toast.classList.add('translate-x-0', 'opacity-100');
+
+                // Auto hide after 3 seconds
                 setTimeout(() => {
                     toast.classList.remove('translate-x-0', 'opacity-100');
                     toast.classList.add('translate-x-full', 'opacity-0');
-                    toast.addEventListener('transitionend', () => toast.remove());
+
+                    toast.addEventListener('transitionend', () => {
+                        toast.remove();
+                    }, {
+                        once: true
+                    });
                 }, 3000);
             });
-        });
+        })();
     </script>
+
 </body>
 
 </html>

@@ -28,6 +28,7 @@ Route::post('/register', [RegistrationController::class, 'store']);
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+    Route::post('/admin/participants/bulk-delete', [AdminController::class, 'bulkDelete'])->name('admin.bulk-delete');
     Route::delete('/admin/{participant}', [AdminController::class, 'destroy'])->name('admin.destroy');
 });
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {

@@ -1,37 +1,49 @@
 <?php
 
-// namespace App\Http\Controllers;
-
-// use App\Models\Participant;
-
-// class AdminController extends Controller
-// {
-//     public function index()
-//     {
-//         $participants = Participant::latest()->paginate(20);
-//         return view('admin', compact('participants'));
-//     }
-
-//     public function destroy(Participant $participant)
-//     {
-//         $participant->delete();
-//         return back()->with('success', 'Participant deleted successfully.');
-//     }
-// }
-
 namespace App\Http\Controllers;
 
 use App\Models\Participant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $participants = Participant::latest()->paginate(20);
-        return view('admin', compact('participants'));
+        $query = Participant::query();
+
+        // Date filtering
+        if ($request->has('date_from') && $request->date_from) {
+            $query->whereDate('created_at', '>=', $request->date_from);
+        }
+
+        if ($request->has('date_to') && $request->date_to) {
+            $query->whereDate('created_at', '<=', $request->date_to);
+        }
+
+        $participants = $query->latest()->paginate(20);
+
+        // Statistics
+        $weeklyCount = Participant::where('created_at', '>=', now()->subWeek())->count();
+        $recentCount = Participant::where('created_at', '>=', now()->subDay())->count();
+        $withOrganization = Participant::whereNotNull('organization')->count();
+
+        return view('admin', compact('participants', 'weeklyCount', 'recentCount', 'withOrganization'));
     }
 
+    public function bulkDelete(Request $request)
+    {
+        $request->validate([
+            'ids' => 'required|array',
+            'ids.*' => 'exists:participants,id',
+        ]);
+
+        Participant::whereIn('id', $request->ids)->delete();
+
+        return response()->json(['success' => true]);
+    }
+
+    // Keep your existing destroy and update methods
     public function destroy(Participant $participant)
     {
         $participant->delete();
@@ -49,7 +61,6 @@ class AdminController extends Controller
         ]);
 
         $participant->update($request->all());
-
         return redirect()->route('admin')->with('success', 'Participant updated successfully!');
     }
 }
