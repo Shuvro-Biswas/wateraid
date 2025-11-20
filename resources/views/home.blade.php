@@ -108,8 +108,8 @@
                 <div class="highlight-card">
                     <div class="highlight-icon">📍</div>
                     <div class="highlight-content">
-                        <h3>Nairobi, Kenya</h3>
-                        <p>Kenyatta International Convention Centre</p>
+                        <h3>Banani, Dhaka</h3>
+                        <p>Wateraid International Convention Centre</p>
                     </div>
                 </div>
                 <div class="highlight-card">
@@ -129,7 +129,7 @@
             <div class="section-header">
                 <h2 class="section-title">Event Details</h2>
                 <p class="section-subtitle">
-                    15-17 December 2025 • Kenyatta International Convention Centre (KICC), Nairobi, Kenya
+                    15-17 December 2025 • Wateraid International Convention Centre (WICC), Banani, Dhaka
                 </p>
             </div>
 
@@ -155,7 +155,7 @@
                         </svg>
                     </div>
                     <h3 class="detail-title">Venue</h3>
-                    <p class="detail-text">Kenyatta International Convention Centre<br>Nairobi, Kenya</p>
+                    <p class="detail-text">Wateraid International Convention Centre<br>Banani, Dhaka</p>
                 </div>
 
                 <div class="detail-card">
