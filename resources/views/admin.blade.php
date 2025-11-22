@@ -92,7 +92,7 @@
                     </div>
 
                     <!-- Date Filter -->
-                    <div class="flex gap-4">
+                    {{-- <div class="flex gap-4">
                         <input type="date" id="dateFrom"
                             class="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500">
                         <input type="date" id="dateTo"
@@ -105,27 +105,49 @@
                             class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors">
                             Reset
                         </button>
-                    </div>
+                    </div> --}}
                 </div>
 
                 <!-- Quick Actions -->
-                <div class="flex flex-wrap gap-2 mt-4">
-                    <button onclick="exportToCSV()"
-                        class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition-colors">
-                        Export CSV
-                    </button>
-                    <button onclick="selectAll()"
-                        class="bg-blue-600 text-white px-3 py-1 rounded text-sm hover:bg-blue-700 transition-colors">
-                        Select All
-                    </button>
-                    <button onclick="deselectAll()"
-                        class="bg-gray-600 text-white px-3 py-1 rounded text-sm hover:bg-gray-700 transition-colors">
-                        Deselect All
-                    </button>
-                    <button onclick="bulkDelete()"
-                        class="bg-red-600 text-white px-3 py-1 rounded text-sm hover:bg-red-700 transition-colors">
-                        Bulk Delete
-                    </button>
+                <div class="w-full bg-white p-5 rounded-xl shadow-md border border-gray-200">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Filter by Date Range</h3>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
+                        <!-- From Date -->
+                        <div>
+                            <label for="dateFrom" class="block text-sm font-medium text-gray-700 mb-1">
+                                From Date
+                            </label>
+                            <input type="date" id="dateFrom"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 shadow-sm hover:border-gray-400"
+                                required>
+                        </div>
+
+                        <!-- To Date -->
+                        <div>
+                            <label for="dateTo" class="block text-sm font-medium text-gray-700 mb-1">
+                                To Date
+                            </label>
+                            <input type="date" id="dateTo"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 shadow-sm hover:border-gray-400">
+                        </div>
+
+                        <!-- Apply Button -->
+                        <div>
+                            <button onclick="applyFilters()"
+                                class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-200 shadow-md active:scale-95">
+                                Apply Filter
+                            </button>
+                        </div>
+
+                        <!-- Reset Button -->
+                        <div>
+                            <button onclick="resetFilters()"
+                                class="w-full bg-gray-500 text-white px-6 py-3 rounded-lg font-medium hover:bg-gray-600 transition-all duration-200 shadow-md active:scale-95">
+                                Reset
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -507,11 +529,11 @@
             </div>
             
             ${participant.notes ? `
-                                    <div class="border-t pt-3">
-                                        <div class="text-gray-600 text-sm mb-1">Additional Notes:</div>
-                                        <div class="text-sm bg-gray-50 p-3 rounded whitespace-pre-wrap">${participant.notes}</div>
-                                    </div>
-                                    ` : ''}
+                                                                            <div class="border-t pt-3">
+                                                                                <div class="text-gray-600 text-sm mb-1">Additional Notes:</div>
+                                                                                <div class="text-sm bg-gray-50 p-3 rounded whitespace-pre-wrap">${participant.notes}</div>
+                                                                            </div>
+                                                                            ` : ''}
         </div>
     `;
 
