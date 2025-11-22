@@ -232,7 +232,7 @@
             </div>
 
             <!-- Copyright - Always Visible -->
-            <div class="text-center text-blue-300 text-xs mt-6 pt-4 border-t border-blue-800 lg:hidden">
+            <div class="text-center text-blue-300 text-xs mt-6 pt-4 border-t border-blue-800">
                 © 2025 Rainwater Convention | Developed By Shuvro Biswas - YPL@ICT-wateraid
             </div>
         </div>

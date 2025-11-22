@@ -173,72 +173,104 @@
     </section>
 
     <!-- Benefits Section -->
-    <section class="benefits">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Why Attend This Convention?</h2>
-                <p class="section-subtitle">Discover the key benefits of joining this premier water management event</p>
+    <section class="benefits py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                    Why Attend This Convention?
+                </h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    Discover the key benefits of joining this premier water management event
+                </p>
             </div>
 
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-number">01</div>
-                    <div class="benefit-content">
-                        <h3 class="benefit-title">Global Networking</h3>
-                        <p class="benefit-text">Connect with industry leaders, researchers, and policymakers from around
-                            the
-                            globe. Build valuable professional relationships.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <div
+                    class="benefit-card bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                    <div class="flex items-start gap-6">
+                        <div class="benefit-number text-6xl font-black text-blue-100">01</div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Global Networking</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Connect with industry leaders, researchers, and policymakers from around the globe. Build
+                                valuable professional relationships.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-number">02</div>
-                    <div class="benefit-content">
-                        <h3 class="benefit-title">Latest Research</h3>
-                        <p class="benefit-text">Discover cutting-edge innovations and research in rainwater harvesting and
-                            sustainable water management practices.</p>
+                <div
+                    class="benefit-card bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                    <div class="flex items-start gap-6">
+                        <div class="benefit-number text-6xl font-black text-blue-100">02</div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Latest Research</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Discover cutting-edge innovations and research in rainwater harvesting and sustainable water
+                                management practices.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-number">03</div>
-                    <div class="benefit-content">
-                        <h3 class="benefit-title">Practical Solutions</h3>
-                        <p class="benefit-text">Learn implementable strategies for sustainable water management that you
-                            can apply in your community or organization.</p>
+                <div
+                    class="benefit- card bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                    <div class="flex items-start gap-6">
+                        <div class="benefit-number text-6xl font-black text-blue-100">03</div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Practical Solutions</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Learn implementable strategies for sustainable water management that you can apply in your
+                                community or organization.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-number">04</div>
-                    <div class="benefit-content">
-                        <h3 class="benefit-title">Expert Insights</h3>
-                        <p class="benefit-text">Gain insights from world-renowned experts in water conservation, climate
-                            resilience, and environmental sustainability.</p>
+                <div
+                    class="benefit-card bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                    <div class="flex items-start gap-6">
+                        <div class="benefit-number text-6xl font-black text-blue-100">04</div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Expert Insights</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Gain insights from world-renowned experts in water conservation, climate resilience, and
+                                environmental sustainability.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-number">05</div>
-                    <div class="benefit-content">
-                        <h3 class="benefit-title">Hands-on Workshops</h3>
-                        <p class="benefit-text">Participate in interactive workshops and gain practical skills in rainwater
-                            harvesting system design and implementation.</p>
+                <div
+                    class="benefit-card bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                    <div class="flex items-start gap-6">
+                        <div class="benefit-number text-6xl font-black text-blue-100">05</div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Hands-on Workshops</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Participate in interactive workshops and gain practical skills in rainwater harvesting
+                                system design and implementation.
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                <div class="benefit-card">
-                    <div class="benefit-number">06</div>
-                    <div class="benefit-content">
-                        <h3 class="benefit-title">Career Development</h3>
-                        <p class="benefit-text">Enhance your professional profile and explore career opportunities in the
-                            growing field of water sustainability.</p>
+                <div
+                    class="benefit-card bg-white rounded-2xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                    <div class="flex items-start gap-6">
+                        <div class="benefit-number text-6xl font-black text-blue-100">06</div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Career Development</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Enhance your professional profile and explore career opportunities in the growing field of
+                                water sustainability.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">
