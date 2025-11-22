@@ -97,14 +97,7 @@
                             class="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500">
                         <input type="date" id="dateTo"
                             class="border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500">
-                        <button onclick="applyFilters()"
-                            class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                            Apply
-                        </button>
-                        <button onclick="resetFilters()"
-                            class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors">
-                            Reset
-                        </button>
+                    
                     </div> --}}
                 </div>
 
@@ -138,6 +131,7 @@
                                 class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-all duration-200 shadow-md active:scale-95">
                                 Apply Filter
                             </button>
+                            
                         </div>
 
                         <!-- Reset Button -->
